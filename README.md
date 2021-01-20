@@ -1,4 +1,4 @@
-# Toml-DB
+# toml-db
 
 Toml-DB is an attempt at a No-SQL DB, which works similar to tiny-db, but uses Toml for storing data. 
 
@@ -27,8 +27,6 @@ For now, the functions available are:
 - `db.insert()`
 - `db.get()`
 - `db.update()`
-- `db.add()`
-- `db.subtract()`
 - `db.delete()`
 
 ### Insert is used to create a new document
@@ -55,18 +53,26 @@ db.get("id", 1)
 
 ```py
 db.update({"age": 25}, "id", 1)
+```
 
-#Age is now 25
+# The `add()` and `sub()` functions can now be used within `db.update()` to add or subtract values. However, the `db.add()` and `db.subtract` functions can still be used, although they are not recommended
+
+```py
+db.update(add("age", 5), "id", 1)
+#Age is now 30
+
+db.update(sub("age", 10), "id", 1)
+#Age is now 20
 ```
 
 ### Add and Subtract are used to add and subtract certain values to or from the values of a field
 
 ```py
 db.add({"age": 5}, "id", 1)
-#Age is now 30
+#Age is now 25
 
 db.subtract({"age": 10}, "id", 1)
-#Age is now 20
+#Age is now 15
 ```
 
 ### Delete is used to delete a doc or the entire DB
@@ -80,5 +86,5 @@ db.delete()
 ```py
 db.delete("id", 1)
 
-#Deletes this "{"id": 1, "name": "Test", "age": 20}" doc
+#Deletes this "{"id": 1, "name": "Test", "age": 15}" doc
 ```
