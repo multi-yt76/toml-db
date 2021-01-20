@@ -1,4 +1,4 @@
-# toml-db
+# Toml-DB
 
 Toml-DB is an attempt at a No-SQL DB, which works similar to tiny-db, but uses Toml for storing data. 
 
