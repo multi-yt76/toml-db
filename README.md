@@ -60,7 +60,7 @@ db.update({"age": 25}, "id", 1)
 The `add()` and `sub()` functions can now be used within `db.update()` to add or subtract values. However, the `db.add()` and `db.subtract()` functions can still be used, although they are not recommended
 
 ```py
-from tomldb.operations import add, subtract
+from tomldb.operations import add, sub
 
 db.update(add("age", 5), "id", 1)
 #Age is now 30
