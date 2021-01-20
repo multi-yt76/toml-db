@@ -1,4 +1,5 @@
 import toml
+import ast
 
 class TomlDB:
 
@@ -42,6 +43,15 @@ class TomlDB:
         db2.write(toml.dumps(arr))
 
     else:
+     if type(var) == str and type(ast.literal_eval(var[3:])) == dict:
+
+       if var[0:3] == "add":
+        self.add(ast.literal_eval(var[3::]), k, int(v))
+
+       elif var[0:3] == "sub":
+        self.subtract(ast.literal_eval(var[3::]), k, int(v))
+
+     else:
        raise TypeError("Value specified for the update function was not a dict")
  
   def add(self, var, k, v):
@@ -65,7 +75,7 @@ class TomlDB:
 
   def subtract(self, var, k, v):
     if type(var) == dict:
-     if type(list(var.keys())[0]) == int and type(list(var.values())[0]) == int:
+     if type(list(var.values())[0]) == int:
 
       key_list = list(self.get()["_default"].keys())
       val_list = list(self.get()["_default"].values())
