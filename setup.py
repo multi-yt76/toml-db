@@ -1,7 +1,7 @@
 from setuptools import setup
 import re
 
-version = '1.0.0a'
+version = '1.0.1a'
 
 setup(name='toml-db',
       author='multi-yt76',
