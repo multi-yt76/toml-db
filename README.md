@@ -57,7 +57,7 @@ db.get("id", 1)
 db.update({"age": 25}, "id", 1)
 ```
 
-The `add()` and `sub()` functions can now be used within `db.update()` to add or subtract values. However, the `db.add()` and `db.subtract` functions can still be used, although they are not recommended
+The `add()` and `sub()` functions can now be used within `db.update()` to add or subtract values. However, the `db.add()` and `db.subtract()` functions can still be used, although they are not recommended
 
 ```py
 db.update(add("age", 5), "id", 1)
