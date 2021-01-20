@@ -55,6 +55,8 @@ db.get("id", 1)
 
 ```py
 db.update({"age": 25}, "id", 1)
+
+#Age is now 25
 ```
 
 ### Add and Subtract are used to add and subtract certain values to or from the values of a field
