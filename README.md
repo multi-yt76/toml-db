@@ -22,7 +22,8 @@ from tomldb import TomlDB
 db = TomlDB('db.toml')
 ```
 
-For now, the functions available are:
+Update 1.1a has added in some more new functions.
+The new list of functions is given below:
 
 - `db.insert()`
 - `db.get()`
@@ -30,6 +31,14 @@ For now, the functions available are:
 - `db.add()`
 - `db.subtract()`
 - `db.delete()`
+
+- `db.search()`
+- `db.insert_multiple()`
+- `db.contains()`
+- `db.count()`
+- `db.all()`
+
+Queries have also been added, their implementation is given at the end.
 
 ### Insert is used to create a new document
 
@@ -92,3 +101,54 @@ db.delete("id", 1)
 
 #Deletes this "{"id": 1, "name": "Test", "age": 15}" doc
 ```
+
+The Queries make the syntax easier to follow and add a few more features.
+
+```py
+from tomldb import TomlDB, Query
+
+db = TomlDB('db.toml')
+User = Query()
+
+db.insert({"id": 1, "name": "Test", "age": 20})
+
+db.get(User.id == 1) """ It can be also written as: db.get(User["id"] == 1) """
+
+#Returns: {"id": 1, "name": "Test", "age": 20}
+```
+
+### Insert_Multiple is used to insert multiple dicts from a list
+
+### Search is used to get matching data in a list
+
+```py
+db.insert_multiple([{"id": 1, "name": "Test1", "age": 20}, {"id": 2, "name": "Test2", "age": 35}, {"id": 3, "name": "Test3", "age": 12}])
+
+db.search(User.age > 12) """ Operators other than == can also be used with Queries """
+
+#Returns: [{"id": 1, "name": "Test1", "age": 20}, {"id": 2, "name": "Test2", "age": 35}]
+```
+
+### Contains checks if a key:value pair is present in a db, and returns the bool response
+
+```py
+db.contains(User.id == 4)
+
+#Returns: False
+```
+### Count gets the number of matching dicts 
+
+```py
+db.count(User.id == 1)
+
+#Returns: 1
+```
+
+### All gets all the dicts in a list
+
+```py
+db.all()
+
+#Returns: [{"id": 1, "name": "Test1", "age": 20}, {"id": 2, "name": "Test2", "age": 35}, {"id": 3, "name": "Test3", "age": 12}]
+```
+
