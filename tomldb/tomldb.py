@@ -188,9 +188,11 @@ class TomlDB:
     return arr
 
   def contains(self, k = None, v = None) -> bool:
-    if k and v:
+    if k:
+      if not v:
+        k, v, e = k
       ans = False
-      if len(self.get(k, v)) != 0:
+      if len(self.get(k, v, e)) != 0:
         ans = True
 
       return ans
