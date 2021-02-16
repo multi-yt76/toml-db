@@ -1,3 +1,3 @@
-from .tomldb import TomlDB
+from .tomldb import TomlDB, Query
 
-__all__ = {'TomlDB'}
+__all__ = {'TomlDB', 'Query'}
