@@ -22,8 +22,7 @@ from tomldb import TomlDB
 db = TomlDB('db.toml')
 ```
 
-Update 1.1a has added in some more new functions.
-The new list of functions is given below:
+#### Update 1.1a has added in some more new functions. The new list of functions is given below:
 
 - `db.insert()`
 - `db.get()`
@@ -38,7 +37,7 @@ The new list of functions is given below:
 - `db.count()`
 - `db.all()`
 
-Queries have also been added, their implementation is given at the end.
+#### Queries have also been added, their implementation is given at the end.
 
 ### Insert is used to create a new document
 
@@ -102,7 +101,7 @@ db.delete("id", 1)
 #Deletes this "{"id": 1, "name": "Test", "age": 15}" doc
 ```
 
-The Queries make the syntax easier to follow and add a few more features.
+### The Queries make the syntax easier to follow and add a few more features.
 
 ```py
 from tomldb import TomlDB, Query
