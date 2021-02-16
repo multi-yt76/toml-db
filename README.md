@@ -37,7 +37,7 @@ db = TomlDB('db.toml')
 - `db.count()`
 - `db.all()`
 
-#### Queries have also been added, their implementation is given at the [end] (https://github.com/multi-yt76/toml-db/blob/main/README.md#the-queries-make-the-syntax-easier-to-follow-and-add-a-few-more-features).
+#### Queries have also been added, their implementation is given at the [end](https://github.com/multi-yt76/toml-db/blob/main/README.md#the-queries-make-the-syntax-easier-to-follow-and-add-a-few-more-features).
 
 ### Insert is used to create a new document
 
