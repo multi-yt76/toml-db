@@ -201,8 +201,11 @@ class TomlDB:
       raise ValueError("Both key and value have to be provided")
   
   def count(self, k = None, v = None) -> int:
-    if k and v:
-      return len(self.get(k, v))
+    if k and not v and type(k) == tuple:
+      return len(self.search(k))
+
+    elif k and v:
+      return len(self.search(k, v))
 
     else:
       raise ValueError("Both key and value have to be provided")
